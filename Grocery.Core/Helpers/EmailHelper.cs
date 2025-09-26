@@ -1,6 +1,6 @@
 ﻿namespace Grocery.Core.Helpers;
 
-public class EmailHelper
+public static class EmailHelper
 {
     
     public static bool ValidateEmail(string email)

@@ -19,9 +19,6 @@
     </Shell.TitleView>
 
     <Grid>
-        <SearchBar Placeholder="Zoek in je lijst..."
-                   SearchCommand="{Binding SearchProductsCommand}"
-                   SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}" />
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="2*"/>
@@ -57,9 +54,9 @@
 
         <Border Grid.Row="1" Grid.Column="1" Stroke="#C49B33" StrokeThickness="4" Padding="5" Margin="5" HorizontalOptions="Center">
             <StackLayout>
-                <!-- <SearchBar Placeholder="Zoek in je lijst..." -->
-                <!--            Text="{Binding SearchText}" -->
-                <!--            SearchCommand="{Binding PerformSearchCommand}" /> -->
+                <SearchBar Placeholder="Zoek in je lijst..."
+                           SearchCommand="{Binding SearchProductsCommand}"
+                           SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}" />
                 <CollectionView ItemsSource="{Binding AvailableProducts}" Margin="5" WidthRequest="300" HorizontalOptions="Start"
                                 SelectionMode="Single"
                                 SelectionChangedCommand="{Binding AddProductCommand}"

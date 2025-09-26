@@ -11,9 +11,9 @@ namespace Grocery.Core.Services
         {
             _groceryRepository = groceryRepository;
         }
-        public List<GroceryList> GetAll(int clientId)
+        public List<GroceryList> GetAll()
         {
-            return _groceryRepository.GetAll().Where(p => p.ClientId == clientId).ToList();
+            return _groceryRepository.GetAll();
         }
         public GroceryList Add(GroceryList item)
         {

@@ -16,7 +16,7 @@ namespace Grocery.App.ViewModels
         {
             _groceryListService = groceryListService;
             _global = global;
-            GroceryLists = new(_groceryListService.GetAll(_global.Client.Id));
+            GroceryLists = new(_groceryListService.GetAll());
             Title = $"Boodschappen lijst van {_global.Client.Name}";
         }
 
@@ -29,7 +29,7 @@ namespace Grocery.App.ViewModels
         public override void OnAppearing()
         {
             base.OnAppearing();
-            GroceryLists = new(_groceryListService.GetAll(_global.Client.Id));
+            GroceryLists = new(_groceryListService.GetAll());
         }
 
         public override void OnDisappearing()

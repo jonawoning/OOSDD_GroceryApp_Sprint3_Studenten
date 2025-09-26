@@ -33,5 +33,16 @@ jobs:
       - name: Bouw de applicatie
         run: dotnet build --configuration Release --no-restore
 
-#      - name: Voer unit tests uit
-#        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+      - name: Voer unit tests uit
+        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+#      - name: Alleen testprojecten bouwen
+#          shell: pwsh
+#          run: |
+#            Get-ChildItem -Recurse -Filter *Tests*.csproj |
+#            ForEach-Object { dotnet build $_.FullName -c Release --no-restore }
+#
+#      - name: Unittests uitvoeren
+#        shell: pwsh
+#        run: |
+#          Get-ChildItem -Recurse -Filter *Tests*.csproj |
+#            ForEach-Object { dotnet test $_.FullName -c Release --no-build --verbosity normal }

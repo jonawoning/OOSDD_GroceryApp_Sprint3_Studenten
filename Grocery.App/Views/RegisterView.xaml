@@ -1,0 +1,60 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grocery.App.ViewModels"
+             x:Class="Grocery.App.Views.RegisterView"
+             x:DataType="vm:RegisterViewModel"
+             Title="Register">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+            <!-- Titel -->
+            <Label Text="Create an Account"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
+
+            <!-- Card container zonder wit vlak -->
+            <Frame
+                   BorderColor="#DDD"
+                   CornerRadius="20"
+                   Padding="25"
+                   HasShadow="False">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Entry Placeholder="Email"
+                           Text="{Binding Email}"
+                           Keyboard="Email"
+                           ClearButtonVisibility="WhileEditing"
+                            />
+
+                    <Entry Placeholder="Password"
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           ClearButtonVisibility="WhileEditing"
+                            />
+
+                    <Entry Placeholder="Name"
+                           Text="{Binding Name}"
+                           Keyboard="Text"
+                           ClearButtonVisibility="WhileEditing"
+                            />
+
+                    <Button Text="Register"
+                            Command="{Binding RegisterCommand}"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="50" />
+
+                    <Label Text="{Binding ErrorMessage}"
+                           TextColor="Red"
+                           FontSize="14"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

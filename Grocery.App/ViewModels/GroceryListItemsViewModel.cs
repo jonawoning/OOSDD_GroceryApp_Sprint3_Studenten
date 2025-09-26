@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Maui.Alerts;
+﻿ using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Grocery.App.Views;
@@ -83,6 +83,37 @@ namespace Grocery.App.ViewModels
             catch (Exception ex)
             {
                 await Toast.Make($"Opslaan mislukt: {ex.Message}").Show(cancellationToken);
+            }
+        }
+        
+        [RelayCommand]
+        public void SearchProducts(string searchText)
+        {
+            var allProducts = _productService.GetAll();
+            var filteredProducts = new List<Product>();
+
+            foreach (var p in allProducts)
+            {
+                // Skip als al in boodschappenlijst
+                if (MyGroceryListItems.Any(g => g.ProductId == p.Id))
+                    continue;
+
+                // Skip als geen voorraad
+                if (p.Stock <= 0)
+                    continue;
+
+                // Skip als er gezocht wordt en de naam niet matcht
+                if (!string.IsNullOrWhiteSpace(searchText) &&
+                    !p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                filteredProducts.Add(p);
+            }
+
+            AvailableProducts.Clear();
+            foreach (var product in filteredProducts)
+            {
+                AvailableProducts.Add(product);
             }
         }
 

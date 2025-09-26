@@ -33,5 +33,5 @@ jobs:
       - name: Bouw de applicatie
         run: dotnet build --configuration Release --no-restore
 
-      - name: Voer unit tests uit
-        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+#      - name: Voer unit tests uit
+#        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal

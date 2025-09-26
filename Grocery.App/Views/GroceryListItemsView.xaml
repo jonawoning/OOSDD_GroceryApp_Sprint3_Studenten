@@ -20,7 +20,7 @@
 
     <Grid>
         <SearchBar Placeholder="Zoek in je lijst..."
-                   SearchCommand="{Binding SearchCommand}"
+                   SearchCommand="{Binding SearchProductsCommand}"
                    SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}" />
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
